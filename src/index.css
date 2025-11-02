@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root { --bg: #f8fafc; --panel: #ffffff; --muted: #64748b; --accent: #0ea5e9; }
+[data-theme="dark"] { --bg: #0f172a; --panel: #0b1220; --muted: #94a3b8; --accent: #06b6d4; color-scheme: dark; }
+body { background: var(--bg); color: #0f172a; }
+[data-theme="dark"] body { color: #e6eef6; }
+.container { max-width: 1200px; margin: 0 auto; }
+.panel { background: var(--panel); }
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* Mobile navigation styles */
+  nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background: var(--panel);
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  
+  /* Content area adjustments */
+  main {
+    padding-bottom: 70px; /* Space for bottom navigation */
+  }
+  
+  /* Header adjustments */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--panel);
+    padding: 10px 0;
+  }
+  
+  /* List items in mobile view */
+  .list-item {
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Tab navigation for mobile */
+  .tabs {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0;
+    background-color: white;
+  }
+  
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tab {
+    padding: 12px 16px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .tab.active {
+    color: #5c6ac4;
+    border-bottom: 2px solid #5c6ac4;
+    font-weight: 500;
+  }
+  
+  /* Mobile stock list items */
+  .stock-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Mobile search input */
+  .search-input {
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Mobile bottom navigation */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 1px solid #eee;
+    padding: 8px 0;
+    z-index: 50;
+  }
+  
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: #666;
+  }
+  
+  .mobile-nav-item.active {
+    color: #5c6ac4;
+  }
+  
+  .mobile-nav-icon {
+    margin-bottom: 4px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  /* Button styles for mobile */
+  .btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Search input for mobile */
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
