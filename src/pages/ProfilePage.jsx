@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import Header from "../components/Header";
 
 export default function ProfilePage() {
   const { theme, setTheme, auth, logout } = useContext(AppContext);
+  const nav = useNavigate();
   const [hideData, setHideData] = useState(false);
   const [displayedData, setDisplayedData] = useState({
     userId: "XJY837",
@@ -26,6 +28,12 @@ export default function ProfilePage() {
       });
     }
   };
+
+  function handleLogout(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    logout();
+    nav("/login");
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
@@ -124,7 +132,7 @@ export default function ProfilePage() {
             </div>
           </a>
           
-          <a href="/login" onClick={logout} className="flex items-center justify-between p-4">
+          <a href="/login" onClick={handleLogout} className="flex items-center justify-between p-4">
             <span className="text-gray-800">Logout</span>
             <div className="flex items-center">
               <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
