@@ -14,7 +14,7 @@ export default function PositionsPage() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
       <Header theme={theme} setTheme={setTheme} />
       <div className="grid grid-cols-12">
         <Sidebar instruments={instruments} selected={selected} onSelect={(i) => setSelected(i)} />

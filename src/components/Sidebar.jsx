@@ -15,7 +15,6 @@ export default function Sidebar({ instruments, selected, onSelect }) {
             placeholder="Search & add"
             className="w-full pl-12 pr-12 py-2 border border-gray-300 rounded text-sm search-input text-center"
           />
-          <span className="absolute right-16 text-xs text-gray-500 hidden md:inline">Ctrl + K</span>
           <button className="absolute right-3 text-gray-600" title="Filter">
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4h18M6 8h12M9 12h6M11 16h2" />

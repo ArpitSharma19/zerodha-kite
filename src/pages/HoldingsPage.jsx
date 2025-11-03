@@ -15,7 +15,7 @@ export default function HoldingsPage() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
       <Header theme={theme} setTheme={setTheme} />
       <div className="grid grid-cols-12">
         <Sidebar instruments={instruments} selected={selected} onSelect={(i) => setSelected(i)} />
@@ -62,9 +62,6 @@ export default function HoldingsPage() {
           {/* Empty state */}
           <div className="p-8">
             <div className="flex flex-col items-center justify-center py-16 px-4">
-              <div className="w-48 h-48 mb-6">
-                <img src="/empty-state.svg" alt="No holdings" className="w-full h-full" />
-              </div>
               <h3 className="text-lg font-medium text-gray-800 mb-2">No holdings</h3>
               <p className="text-sm text-gray-500 mb-6 text-center">Buy equities from your watchlist</p>
             </div>

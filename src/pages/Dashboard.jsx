@@ -76,7 +76,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-white pb-16 md:pb-0">
+    <div className="min-h-screen bg-white w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
       <Header theme={theme} setTheme={setTheme} />
       <div className="grid grid-cols-12">
         {/* Desktop sidebar */}

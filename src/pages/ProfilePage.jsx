@@ -1,12 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import Header from "../components/Header";
 
 export default function ProfilePage() {
-  const { theme, setTheme, auth } = useContext(AppContext);
+  const { theme, setTheme, auth, logout } = useContext(AppContext);
+  const [hideData, setHideData] = useState(false);
+  const [displayedData, setDisplayedData] = useState({
+    userId: "XJY837",
+    email: "arpitsharma199714@gmail.com"
+  });
+
+  const handlePrivacyToggle = () => {
+    const newHideData = !hideData;
+    setHideData(newHideData);
+    
+    if (newHideData) {
+      setDisplayedData({
+        userId: "••••••",
+        email: "••••••@••••.com"
+      });
+    } else {
+      setDisplayedData({
+        userId: "XJY837",
+        email: "arpitsharma199714@gmail.com"
+      });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
       <Header theme={theme} setTheme={setTheme} />
       
       {/* User info section */}
@@ -32,14 +54,19 @@ export default function ProfilePage() {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-medium">XJY837</h3>
-            <p className="text-gray-500 text-sm">arpitsharma199714@gmail.com</p>
+            <h3 className="text-lg font-medium">{displayedData.userId}</h3>
+            <p className="text-gray-500 text-sm">{displayedData.email}</p>
             
             <div className="mt-4 flex items-center">
               <span className="text-sm text-gray-600 mr-2">Privacy mode</span>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" className="sr-only peer" />
-                <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                <input 
+                  type="checkbox" 
+                  className="sr-only peer" 
+                  checked={hideData}
+                  onChange={handlePrivacyToggle}
+                />
+                <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
               </label>
             </div>
           </div>
@@ -97,7 +124,7 @@ export default function ProfilePage() {
             </div>
           </a>
           
-          <a href="#" className="flex items-center justify-between p-4">
+          <a href="/login" onClick={logout} className="flex items-center justify-between p-4">
             <span className="text-gray-800">Logout</span>
             <div className="flex items-center">
               <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -187,7 +214,7 @@ export default function ProfilePage() {
 
       {/* Version info */}
       <div className="px-4 py-6 text-center">
-        <p className="text-gray-500 text-sm">Kite v3 b234</p>
+        <p className="text-gray-500 text-sm">TradePro v4 b567</p>
         <div className="mt-4 flex justify-center">
           <svg className="h-6 w-24 text-gray-400" viewBox="0 0 100 24" fill="currentColor">
             <path d="M20 0L0 10l20 10V0zm20 0v20l20-10L40 0z" />
