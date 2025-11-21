@@ -28,8 +28,7 @@ This project simulates the post-login trading dashboard experience with mock dat
 ---
 
 🚀 Live Demo Explore the live version of zerodha kite website here: 
-zerodha-kite-blue.vercel.app
-
+https://zerodha-kite-blue.vercel.app/dashboard
 
 ## 🧠 Project Structure
 
